@@ -1,8 +1,8 @@
 function pong(){
     this.xpos = width/2;
     this.ypos = height/2;
-    this.size = 20;
-    this.xspeed = 2.5;
+    this.size = height/30;
+    this.xspeed = 4.5;
     this.yspeed = 1;
     numberOfStrikes = 0;
     // Create Pong Ball
@@ -28,6 +28,11 @@ function pong(){
         if(this.ypos + this.size/2 > height || this.ypos - this.size/2 < 0){
             this.yspeed = -this.yspeed;
         }
+    }
+
+    this.stop = function(){
+        this.xspeed = 0;
+        this.yspeed = 0;
     }
 
 }
