@@ -1,10 +1,12 @@
-let activePlayer = 2;
+let activePlayer;
+let play = false;
 function setup(){
-    createCanvas(800,600);
+    createCanvas(600,400);
     //Create Bars and Pong Ball 
-    player1 = new slider(100);
-    player2 = new slider(680);
+    player1 = new slider(width/6);
+    player2 = new slider((width/6)*5);
     pongBall = new pong();
+
 }
 
 function draw(){
@@ -22,12 +24,12 @@ function draw(){
     mapperFunc2 = map(pongBall.ypos, player2.ypos, player2.ypos + player2.length, -3, 3);
 
     // Strikes Player 2
-    if(sumOfPos2 > player2.xpos && pongBall.ypos > player2.ypos && pongBall.ypos < player2.ypos + player2.length){    
+    if(sumOfPos2 > player2.xpos && sumOfPos2 < player2.xpos+player2.width && pongBall.ypos > player2.ypos && pongBall.ypos < player2.ypos + player2.length){    
         pongBall.strike(mapperFunc2);
         activePlayer = 1;
     }
     // Strikes Player 1
-    if(sumOfPos1 < player1.xpos + player1.width && pongBall.ypos > player1.ypos && pongBall.ypos < player1.ypos + player1.length){
+    if(sumOfPos1 < player1.xpos + player1.width && sumOfPos1 > player1.xpos && pongBall.ypos > player1.ypos && pongBall.ypos < player1.ypos + player1.length){
         pongBall.strike(mapperFunc1);
         activePlayer = 2;
     }
@@ -37,5 +39,12 @@ function draw(){
         player1.move();
     }else{
         player2.move();
+    }
+
+    if(pongBall.xpos < (pongBall.size/2) || pongBall.xpos > width - (pongBall.size/2)){
+        pongBall.stop();
+        player1.stop();
+        player2.stop();
+        // console.log('Game Over');
     }
 }
