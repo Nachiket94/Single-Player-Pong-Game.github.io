@@ -1,8 +1,8 @@
 function slider(xposition){
     this.xpos = xposition;
-    this.length = 100;
+    this.length = height/6;
     this.ypos = (height/2) - (this.length/2);
-    this.width = 20;
+    this.width = this.length/5;
     this.show = function(){
         fill(255);
         rect(this.xpos, this.ypos, this.width, this.length);
@@ -14,6 +14,7 @@ function slider(xposition){
             this.ypos = 0;
         }
     }
+
     this.move = function(){
         if(keyIsDown(UP_ARROW)){
             this.ypos -= 5;
@@ -22,4 +23,11 @@ function slider(xposition){
             this.ypos += 5;
         }
     }
+    
+    // Game Over
+    this.stop = function(){
+        this.xspeed = 0;
+        this.yspeed = 0;
+    }
+
 }
