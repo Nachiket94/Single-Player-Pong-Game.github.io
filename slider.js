@@ -17,10 +17,10 @@ function slider(xposition){
 
     this.move = function(){
         if(keyIsDown(UP_ARROW)){
-            this.ypos -= 5;
+            this.ypos -= height/70;
         }
         if(keyIsDown(DOWN_ARROW)){
-            this.ypos += 5;
+            this.ypos += height/70;
         }
     }
     
@@ -28,6 +28,9 @@ function slider(xposition){
     this.stop = function(){
         this.xspeed = 0;
         this.yspeed = 0;
+        this.xpos = xposition;
+        this.length = height/6;
+        this.ypos = (height/2) - (this.length/2);
     }
 
 }
