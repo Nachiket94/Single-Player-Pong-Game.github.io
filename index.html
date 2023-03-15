@@ -1,17 +1,25 @@
-<html>
+<!DOCTYPE html>
 <head>
     <title>Single Player Pong</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="slider.js"></script>
-    <script src="pong.js"></script>
-    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tilt+Neon&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <div>
-        <script src="slider.js"></script>
-        <script src="pong.js"></script>
-        <script src="script.js"></script>
+    <h1>Single Player Pong Game</h1>
+    <div class="container">
+        <div>
+            <script src="slider.js"></script>
+            <script src="pong.js"></script>
+            <script src="script.js"></script>
+        </div>
+        <div><button id="btn" onclick="startPlay()">Play <p> { Space }</p></button></div>
     </div>
+
 </body>
 </html>
